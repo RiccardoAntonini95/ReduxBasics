@@ -8,8 +8,8 @@ const Counter = () => {
 
   //useSelector riceve una funzione con lo state dello store e accede a parte di esso, se avessi voluto l'intero store avrei usato useStore()
   //Per questo componente React-Redux eseguirà in automatico una subscription allo store, causando una ri-esecuzione della funzione al cambio dello state
-  const counter = useSelector(state => state.counter)
-  const showCounter = useSelector(state => state.showCounter)
+  const counter = useSelector(state => state.counter.counter)
+  const showCounter = useSelector(state => state.counter.showCounter) //da state accedo al reducer counter che al suo interno ha showCounter nello state
 
   //dispatch va effetuato sulla action il che significa che ho un oggetto con una proprietà type, alla quale assegno un valore come quelli definiti nello store
   const incrementHandler = () => {
