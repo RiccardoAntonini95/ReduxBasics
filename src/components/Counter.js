@@ -1,5 +1,5 @@
-import { useSelector, useDispatch} from 'react-redux';
-
+import { useSelector, useDispatch } from 'react-redux';
+import { counterActions } from '../store';
 import classes from './Counter.module.css';
 
 const Counter = () => {
@@ -13,19 +13,23 @@ const Counter = () => {
 
   //dispatch va effetuato sulla action il che significa che ho un oggetto con una proprietà type, alla quale assegno un valore come quelli definiti nello store
   const incrementHandler = () => {
-    dispatch({ type: "INCREMENT" })
+    //dispatch({ type: "INCREMENT" })
+    dispatch(counterActions.increment())
   };
 
   const increaseHandler = () => {
-    dispatch({ type: "INCREASE",  payload: 5})
+    //dispatch({ type: "INCREASE",  payload: 5})
+    dispatch(counterActions.increase(5)) // che è come scrivere {type: SOME_UNIQUE_IDENTIFIER, payload: 5}
   }
 
   const decrementHandler = () => {
-    dispatch({ type: "DECREMENT" })
+    //dispatch({ type: "DECREMENT" })
+    dispatch(counterActions.decrement())
   };
 
   const toggleCounterHandler = () => {
-    dispatch({ type: "TOGGLE" })
+    //dispatch({ type: "TOGGLE" })
+    dispatch(counterActions.toggle())
   };
 
   return (

@@ -27,6 +27,19 @@ const counterSlice = createSlice({
     }
 })
 
+//configureStore si aspetta un oggetto con una proprietà reducer in cui andiamo a definire quali action dello slice creato useremo per il nostro store
+const store = configureStore({
+    reducer: counterSlice.reducer
+})
+
+//createSlice in automatico ci fornisce le action con unique identifier, senza doverle definire prendendole da counterSlice.reducers, 
+export const counterActions = counterSlice.actions
+
+
+export default store
+
+
+
 
 //ESEMPIO REDUX SENZA LIBRERIA TOOLKIT
 
@@ -68,11 +81,3 @@ const counterReducer = (state = initialState, action) => {
 
     const store = createStore(counterReducer)
 } */
-
-    //configureStore si aspetta un oggetto con una proprietà reducer in cui andiamo a definire quali action dello slice creato useremo per il nostro store
-    const store = configureStore({
-        reducer: counterSlice.reducer
-    })
-
-
-export default store
